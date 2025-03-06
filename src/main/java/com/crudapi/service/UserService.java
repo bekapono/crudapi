@@ -19,7 +19,7 @@ public class UserService {
     }
 
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        return userRepository.findAllActiveUsers();
     }
 
     public User createUser(User user) {
@@ -48,5 +48,12 @@ public class UserService {
         User user = findUserById(id);
         user.setLastName(lastName);
         return userRepository.save(user);
+    }
+
+    public void softDeleteUserById(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User with id " + id + " not found"));
+        user.setDeleted(true); // saved as deleted
+        userRepository.save(user);
     }
 }

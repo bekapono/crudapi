@@ -16,6 +16,9 @@ public class User {
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
+    @Column(name = "is_deleted", nullable = false)
+    private boolean isDeleted = false; // default: not deleted
+
     @Pattern(regexp = "^[a-zA-Z0-9]{8,50}$", message = "Password must be 8-50 characters and contain only letters and numbers")
     @Column(nullable = false)
     private String password;
@@ -46,4 +49,7 @@ public class User {
 
     public String getLastName() { return lastName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public boolean isDeleted() { return isDeleted; }
+    public void setDeleted(boolean isDeleted) { this.isDeleted = isDeleted; }
 }

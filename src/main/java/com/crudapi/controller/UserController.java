@@ -2,6 +2,7 @@ package com.crudapi.controller;
 
 import com.crudapi.model.User;
 import com.crudapi.service.UserService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -52,5 +53,11 @@ public class UserController {
     @PatchMapping("/{id}/lastName")
     public User updateLastName(@PathVariable Long id, @RequestBody String lastName) {
         return userService.updateLastName(id, lastName);
+    }
+
+    @DeleteMapping("/{id")
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+        userService.softDeleteUserById(id);
+        return ResponseEntity.ok("User marked as deleted");
     }
 }
