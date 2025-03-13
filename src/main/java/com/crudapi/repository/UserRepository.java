@@ -10,7 +10,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("""
         SELECT u
         FROM User AS u
-        WHERE User.isDeleted = false
+        WHERE u.isDeleted = false
     """)
     List<User> findAllActiveUsers();
 }

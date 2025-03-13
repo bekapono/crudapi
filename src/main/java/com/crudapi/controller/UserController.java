@@ -55,7 +55,7 @@ public class UserController {
         return userService.updateLastName(id, lastName);
     }
 
-    @DeleteMapping("/{id")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Long id) {
         userService.softDeleteUserById(id);
         return ResponseEntity.ok("User marked as deleted");
