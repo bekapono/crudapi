@@ -19,7 +19,7 @@ This is a **Spring Boot CRUD API** for managing users. The API allows:
 
 ---
 
-## ⚙️ Setup & Installation
+## Setup & Installation
 
 ### **1. Clone the Repository**
 ```
@@ -77,7 +77,7 @@ Password:
 
 ---
 
-## 📌 Example `POST` Request (JSON)
+## Example `POST` Request (JSON)
 ```json
 {
   "userName": "testuser",
